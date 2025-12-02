@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Онлайн-магазин килимів — Home</title>
+  <meta name="description" content="Адаптивний шаблон інтерфейсу для онлайн-магазину килимів — header, адаптивна сітка товарів, footer, анімації." />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+        <img src="Assets/images/logo.svg" alt="Килими &amp; Коври" class="brand-logo" />
+      </div>
+        <div>
+          <h1>Килими &amp; Коври</h1>
+          <p>Онлайн-магазин килимів — український дизайн</p>
+        </div>
+      </div>
+
+      <nav class="primary-nav" role="navigation" aria-label="Головне меню">
+        <ul class="nav-list">
+          <li><a href="#">Головна</a></li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#about">Про нас</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <button class="btn" aria-label="Обране">❤</button>
+        <button class="btn" aria-label="Кошик">🛒 <span class="tag" style="margin-left:.4rem;font-weight:600">2</span></button>
+        <button class="burger" aria-label="Відкрити меню" aria-expanded="false" id="burger">
+          <span class="lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобільне меню (з'являється при кліку на бургер) -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul class="nav-list">
+        <li><a href="#">Головна</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+      </ul>
+      <div style="margin-top:auto;display:flex;gap:0.5rem;align-items:center">
+        <button class="btn primary">Зв'язатися</button>
+        <button class="btn">Пошук</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="content">
+    <section class="hero reveal" aria-labelledby="hero-title">
+      <div class="left">
+        <h2 id="hero-title">Натуральні килими для вашого дому</h2>
+        <p>Від класичних узорів до сучасних мінімалістичних рішень. Безкоштовна доставка по Україні від 3000 ₴.</p>
+        <div class="cta">
+          <a class="btn primary" href="#catalog">Переглянути каталог</a>
+        </div>
+      </div>
+      <div class="right" aria-hidden="true" style="flex:0 0 260px">
+        <!-- декоративна панель з простим SVG -->
+        <svg width="100%" height="140" viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#fdebd8" />
+              <stop offset="1" stop-color="#f4e7e0" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="400" height="140" rx="14" fill="url(#g1)" />
+          <text x="28" y="84" fill="#b97a57" font-size="36" font-weight="700">RUGS</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Каталог -->
+    <section id="catalog">
+      <h3 style="margin:0 0 1rem 0">Популярні товари</h3>
+      <div class="grid" id="productGrid">
+        <!-- Картка товару (копіюйте/генеруйте далі при необхідності) -->
+
+        <article class="card reveal" tabindex="0" aria-labelledby="p1">
+          <div class="thumb" aria-hidden="true">
+            <!-- Placeholder image: external SVG file -->
+            <img src="Assets/images/rug1.svg" alt="Килим класичний — фото"/>
+          </div>
+          <div class="meta">
+            <h4 id="p1" style="margin:.2rem 0 .1rem 0">Класичний узор 160×230</h4>
+            <div class="tag">Натуральна шерсть • Ручна робота</div>
+            <div class="price">4 200 ₴</div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">Деталі</button>
+            <button class="btn primary">Додати в кошик</button>
+          </div>
+        </article>
+
+        <article class="card reveal" tabindex="0" aria-labelledby="p2">
+          <div class="thumb" aria-hidden="true">
+            <img src="Assets/images/rug2.svg" alt="Килим сучасний — фото"/>
+          </div>
+          <div class="meta">
+            <h4 id="p2" style="margin:.2rem 0 .1rem 0">Модерн 120×170</h4>
+            <div class="tag">Синтетичне волокно • Легкий догляд</div>
+            <div class="price">1 980 ₴</div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">Деталі</button>
+            <button class="btn primary">Додати в кошик</button>
+          </div>
+        </article>
+
+        <article class="card reveal" tabindex="0" aria-labelledby="p3">
+          <div class="thumb" aria-hidden="true">
+            <img src="Assets/images/rug3.svg" alt="Килим ручної роботи — фото"/>
+          </div>
+          <div class="meta">
+            <h4 id="p3" style="margin:.2rem 0 .1rem 0">Етно 200×300</h4>
+            <div class="tag">100% вовна • Плотний ворс</div>
+            <div class="price">7 450 ₴</div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">Деталі</button>
+            <button class="btn primary">Додати в кошик</button>
+          </div>
+        </article>
+
+        <article class="card reveal" tabindex="0" aria-labelledby="p4">
+          <div class="thumb" aria-hidden="true">
+            <img src="Assets/images/rug4.svg" alt="Килим мінімалістичний — фото"/>
+          </div>
+          <div class="meta">
+            <h4 id="p4" style="margin:.2rem 0 .1rem 0">Сканди 140×200</h4>
+            <div class="tag">Еко-матеріали • Легкий дизайн</div>
+            <div class="price">3 200 ₴</div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">Деталі</button>
+            <button class="btn primary">Додати в кошик</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Інші секції -->
+    <section id="about" style="margin-top:2rem">
+      <h3>Про нас</h3>
+      <p style="color:var(--muted)">Майстри з досвідом, індивідуальний підхід до кожного замовлення. Ми використовуємо якісні матеріали та дбаємо про екологію.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Килими &amp; Коври</strong>
+        <p class="tag" id="contacts">support@rugs.ua • +38 050 000 0000</p>
+        <p class="tag">Адреса: Київ, Україна</p>
+      </div>
+      <div class="footer-col">
+        <strong>Інфо</strong>
+        <ul style="list-style:none;padding:0;margin:0.5rem 0 0 0;">
+          <li><a href="#">Оплата та доставка</a></li>
+          <li><a href="#">Повернення</a></li>
+          <li><a href="#">Партнерам</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <strong>Соціальні мережі</strong>
+        <div class="socials" role="navigation" aria-label="Соціальні мережі">
+          <a class="btn" href="#">Instagram</a>
+          <a class="btn" href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

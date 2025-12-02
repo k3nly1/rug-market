@@ -1,0 +1,8 @@
+{
+  // Параметри для розширення Live Server
+  "liveServer.settings.port": 8080,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.host": "127.0.0.1",
+  // невелика затримка, щоб файли встигали зберегтись перед перезавантаженням
+  "liveServer.settings.wait": 300
+}
