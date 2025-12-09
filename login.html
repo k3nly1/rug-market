@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Вхід — Килими & Коври</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="Assets/images/logo.svg" alt="Килими & Коври" class="brand-logo" />
+        </div>
+        <div>
+          <h1>Килими &amp; Коври</h1>
+          <p>Онлайн-магазин килимів — український дизайн</p>
+        </div>
+      </div>
+      <div class="controls">
+        <a href="index.html" class="btn">← Назад</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-card">
+      <h2>Вхід до системи</h2>
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Ім'я</label>
+          <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
+        </div>
+
+        <div class="form-group">
+          <label>Виберіть вашу роль:</label>
+          <div class="role-options">
+            <label class="role-label">
+              <input type="radio" name="role" value="user" checked>
+              <span class="role-badge user-role">👤 Звичайний користувач</span>
+            </label>
+            <label class="role-label">
+              <input type="radio" name="role" value="admin">
+              <span class="role-badge admin-role">⚙️ Адміністратор</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary btn-login">Вхід</button>
+      </form>
+
+      <div class="login-info">
+        <p>Тестові облікові дані:</p>
+        <p><strong>Користувач:</strong> user@mail.com / password123</p>
+        <p><strong>Адмін:</strong> admin@mail.com / admin123</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Килими &amp; Коври</strong>
+        <p class="tag">support@rugs.ua • +38 050 000 0000</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

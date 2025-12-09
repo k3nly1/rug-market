@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Профіль користувача — Килими & Коври</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/user-profile.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="Assets/images/logo.svg" alt="Килими & Коври" class="brand-logo" />
+        </div>
+        <div>
+          <h1>Килими &amp; Коври</h1>
+          <p id="userGreeting">Онлайн-магазин килимів — український дизайн</p>
+        </div>
+      </div>
+
+      <nav class="primary-nav" role="navigation" aria-label="Головне меню">
+        <ul class="nav-list">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">Про нас</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <button class="btn" aria-label="Обране">❤</button>
+        <button class="btn" aria-label="Кошик">🛒</button>
+        <button class="btn btn-logout" id="logoutBtn" aria-label="Вихід">Вихід</button>
+        <button class="burger" aria-label="Відкрити меню" aria-expanded="false" id="burger">
+          <span class="lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul class="nav-list">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Про нас</a></li>
+        <li><a href="#">Контакти</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container profile-container">
+    <section class="profile-section">
+      <h2>Мій профіль</h2>
+      
+      <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img src="https://via.placeholder.com/120" alt="Аватар користувача" class="avatar-img" />
+        </div>
+        <div class="profile-info">
+          <h3 id="profileName">Іван Петренко</h3>
+          <p class="profile-email" id="profileEmail">ivan.petrenko@example.com</p>
+          <p class="profile-member">👤 Користувач | Учасник з 2023 року</p>
+        </div>
+        <button class="btn primary edit-profile-btn">Редагувати профіль</button>
+      </div>        <div class="profile-details">
+          <div class="detail-group">
+            <label>Ім'я</label>
+            <p>Іван Петренко</p>
+          </div>
+          <div class="detail-group">
+            <label>Email</label>
+            <p>ivan.petrenko@example.com</p>
+          </div>
+          <div class="detail-group">
+            <label>Телефон</label>
+            <p>+38 050 123 45 67</p>
+          </div>
+          <div class="detail-group">
+            <label>Адреса</label>
+            <p>вул. Київська, 15, Київ, 03000</p>
+          </div>
+          <div class="detail-group">
+            <label>Місто</label>
+            <p>Київ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-sections-grid">
+        <section class="profile-mini-section">
+          <h4>Мої замовлення</h4>
+          <ul class="orders-list">
+            <li>
+              <div class="order-item">
+                <span class="order-id">Замовлення #12345</span>
+                <span class="order-date">5 грудня 2025</span>
+                <span class="order-status status-completed">Завершено</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-item">
+                <span class="order-id">Замовлення #12344</span>
+                <span class="order-date">30 листопада 2025</span>
+                <span class="order-status status-shipped">Відправлено</span>
+              </div>
+            </li>
+            <li>
+              <div class="order-item">
+                <span class="order-id">Замовлення #12343</span>
+                <span class="order-date">20 листопада 2025</span>
+                <span class="order-status status-processing">В обробці</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="profile-mini-section">
+          <h4>Мої улюблені</h4>
+          <ul class="favorites-list">
+            <li>Класичний узор 160×230 — 4 200 ₴</li>
+            <li>Модерн 120×170 — 1 980 ₴</li>
+            <li>Етно 200×300 — 7 450 ₴</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn">Змінити пароль</button>
+        <button class="btn">Завантажити дані</button>
+        <button class="btn btn-danger">Видалити акаунт</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Килими &amp; Коври</strong>
+        <p class="tag">support@rugs.ua • +38 050 000 0000</p>
+        <p class="tag">Адреса: Київ, Україна</p>
+      </div>
+      <div class="footer-col">
+        <strong>Інфо</strong>
+        <ul style="list-style:none;padding:0;margin:0.5rem 0 0 0;">
+          <li><a href="#">Оплата та доставка</a></li>
+          <li><a href="#">Повернення</a></li>
+          <li><a href="#">Партнерам</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <strong>Соціальні мережі</strong>
+        <div class="socials" role="navigation" aria-label="Соціальні мережі">
+          <a class="btn" href="#">Instagram</a>
+          <a class="btn" href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const userName = localStorage.getItem('userName');
+      const userEmail = localStorage.getItem('userEmail');
+      const loginTime = localStorage.getItem('loginTime');
+
+      if(userName) {
+        document.getElementById('userGreeting').textContent = `👋 Привіт, ${userName}!`;
+        document.getElementById('profileName').textContent = userName;
+        document.getElementById('profileEmail').textContent = userEmail || 'user@example.com';
+      }
+
+      const logoutBtn = document.getElementById('logoutBtn');
+      if(logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
+      }
+    });
+  </script>
+</body>
+</html>
