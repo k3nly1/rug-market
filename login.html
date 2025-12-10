@@ -27,45 +27,80 @@
 
   <main class="login-container">
     <div class="login-card">
-      <h2>Вхід до системи</h2>
-      <form id="loginForm" class="login-form">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Пароль</label>
-          <input type="password" id="password" name="password" placeholder="••••••••" required>
-        </div>
-
-        <div class="form-group">
-          <label for="name">Ім'я</label>
-          <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
-        </div>
-
-        <div class="form-group">
-          <label>Виберіть вашу роль:</label>
-          <div class="role-options">
-            <label class="role-label">
-              <input type="radio" name="role" value="user" checked>
-              <span class="role-badge user-role">👤 Звичайний користувач</span>
-            </label>
-            <label class="role-label">
-              <input type="radio" name="role" value="admin">
-              <span class="role-badge admin-role">⚙️ Адміністратор</span>
-            </label>
+      <!-- ЛОГІН ФОРМА -->
+      <div id="loginSection" class="auth-section">
+        <h2>Вхід до системи</h2>
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" placeholder="example@mail.com" required>
           </div>
-        </div>
 
-        <button type="submit" class="btn primary btn-login">Вхід</button>
-      </form>
+          <div class="form-group">
+            <label for="loginPassword">Пароль</label>
+            <input type="password" id="loginPassword" name="password" placeholder="••••••••" required>
+          </div>
 
-      <div class="login-info">
-        <p>Тестові облікові дані:</p>
-        <p><strong>Користувач:</strong> user@mail.com / password123</p>
-        <p><strong>Адмін:</strong> admin@mail.com / admin123</p>
+          <button type="submit" class="btn primary btn-login">Вхід</button>
+          <p class="auth-toggle">Немаєте акаунту? <a href="#" onclick="toggleAuthSection()">Зареєструйтесь</a></p>
+        </form>
       </div>
+
+      <!-- РЕЄСТРАЦІЯ ФОРМА -->
+      <div id="registerSection" class="auth-section" style="display: none;">
+        <h2>Реєстрація</h2>
+        <form id="registerForm" class="login-form">
+          <div class="form-group">
+            <label for="regFirstName">Ім'я</label>
+            <input type="text" id="regFirstName" name="firstName" placeholder="Ваше ім'я" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regLastName">Прізвище</label>
+            <input type="text" id="regLastName" name="lastName" placeholder="Ваше прізвище" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" name="email" placeholder="example@mail.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regPassword">Пароль</label>
+            <input type="password" id="regPassword" name="password" placeholder="••••••••" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regConfirmPassword">Підтвердьте пароль</label>
+            <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="••••••••" required>
+          </div>
+
+          <div class="form-group">
+            <label>Виберіть вашу роль:</label>
+            <div class="role-options">
+              <label class="role-label">
+                <input type="radio" name="role" value="user" checked>
+                <span class="role-badge user-role">👤 Звичайний користувач</span>
+              </label>
+              <label class="role-label">
+                <input type="radio" name="role" value="admin">
+                <span class="role-badge admin-role">⚙️ Адміністратор</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn primary btn-login">Зареєструватися</button>
+          <p class="auth-toggle">Вже маєте акаунт? <a href="#" onclick="toggleAuthSection()">Увійдіть</a></p>
+        </form>
+      </div>
+
+      <div class="login-info" id="testCredentials">
+        <p><strong>Тестові облікові дані:</strong></p>
+        <p>Користувач: user@mail.com / password123</p>
+        <p>Адмін: admin@mail.com / admin123</p>
+      </div>
+
+      <div id="authMessage" class="auth-message" style="display: none;"></div>
     </div>
   </main>
 

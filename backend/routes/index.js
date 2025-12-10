@@ -1,5 +1,6 @@
 const express = require('express');
 const { sequelize } = require('../config/db');
+const authRoutes = require('./auth');
 const adminRoutes = require('./admin');
 
 const router = express.Router();
@@ -18,6 +19,9 @@ router.get('/ping-db', async (req, res, next) => {
     res.status(503).json({ success: false, message: 'Database connection failed', error: err.message });
   }
 });
+
+// Mount auth routes at /api/auth
+router.use('/auth', authRoutes);
 
 // Mount admin routes at /api/admin
 router.use('/admin', adminRoutes);

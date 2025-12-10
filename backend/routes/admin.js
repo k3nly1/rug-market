@@ -3,8 +3,12 @@ const productController = require('../controllers/admin/productController');
 const userController = require('../controllers/admin/userController');
 const orderController = require('../controllers/admin/orderController');
 const categoryController = require('../controllers/admin/categoryController');
+const { verifyToken, requireAdmin } = require('../middleware/authMiddleware');
 
 const router = express.Router();
+
+// ========== AUTHENTICATION CHECK FOR ALL ADMIN ROUTES ==========
+router.use(verifyToken, requireAdmin);
 
 // ========== PRODUCTS ==========
 router.get('/products', productController.getAllProducts);

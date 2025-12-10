@@ -7,14 +7,14 @@ const { sequelize } = require('./models');
 
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Mount API routes
+
 app.use('/api', routes);
 
-// 404 handler + general error handler
+
 app.use(notFound);
 app.use(errorHandler);
 
@@ -26,7 +26,7 @@ async function start() {
     console.log('Database connection has been established successfully.');
 
     if (process.env.DB_SYNC === 'true') {
-      // In development you can enable `DB_SYNC=true` to auto-sync models.
+      
       await sequelize.sync({ alter: true });
       console.log('Database synced (alter).');
     }

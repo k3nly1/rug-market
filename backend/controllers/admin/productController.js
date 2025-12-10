@@ -160,7 +160,7 @@ exports.getProductsWithOrders = async (req, res, next) => {
   try {
     const { Product, Order } = require('../../models');
     
-    // Товари разом з інформацією про замовлення (LEFT JOIN)
+   
     const products = await Product.findAll({
       include: [
         {

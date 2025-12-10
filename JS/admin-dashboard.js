@@ -5,6 +5,40 @@ let currentEntityType = null; // 'products', 'users', 'orders'
 let currentEditId = null;
 let allData = {};
 
+// ========== GET AUTH HEADERS WITH JWT TOKEN ==========
+function getAuthHeaders() {
+  const token = localStorage.getItem('authToken');
+  return {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+  };
+}
+
+// ========== FETCH WITH AUTH ==========
+async function fetchWithAuth(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: getAuthHeaders(),
+  });
+
+  const data = await response.json();
+
+  // Якщо токен закінчився (401)
+  if (response.status === 401) {
+    alert('❌ Сеанс закінчився. Будь ласка, залогініться заново.');
+    logout();
+    return null;
+  }
+
+  // Якщо доступ заборонено (403)
+  if (response.status === 403) {
+    alert('❌ У вас немає прав доступу до цієї операції.');
+    return null;
+  }
+
+  return data;
+}
+
 // ========== INIT ==========
 document.addEventListener('DOMContentLoaded', () => {
   checkAuth();
@@ -14,9 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========== AUTH CHECK ==========
 function checkAuth() {
+  const authToken = localStorage.getItem('authToken');
   const userRole = localStorage.getItem('userRole');
   const userName = localStorage.getItem('userName');
 
+  // Перевірити наявність токена
+  if (!authToken) {
+    alert('❌ Невалідна сесія. Будь ласка, залогініться.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Перевірити роль
   if (userRole !== 'admin') {
     alert('❌ У вас немає доступу до адміністраторської панелі');
     window.location.href = 'user-profile.html';
@@ -90,16 +133,16 @@ function switchSection(section) {
 async function loadDashboardStats() {
   try {
     const [products, orders, users] = await Promise.all([
-      fetch(`${API_BASE}/products`).then(r => r.json()),
-      fetch(`${API_BASE}/orders`).then(r => r.json()),
-      fetch(`${API_BASE}/users`).then(r => r.json()),
+      fetchWithAuth(`${API_BASE}/products`),
+      fetchWithAuth(`${API_BASE}/orders`),
+      fetchWithAuth(`${API_BASE}/users`),
     ]);
 
-    if (products.success) allData.products = products.data;
-    if (orders.success) allData.orders = orders.data;
-    if (users.success) allData.users = users.data;
+    if (products?.success) allData.products = products.data;
+    if (orders?.success) allData.orders = orders.data;
+    if (users?.success) allData.users = users.data;
 
-    // Update stats
+    
     document.querySelectorAll('.stat-number')[0].textContent = products.data?.length || 0;
     document.querySelectorAll('.stat-number')[1].textContent = orders.data?.length || 0;
     document.querySelectorAll('.stat-number')[2].textContent = users.data?.length || 0;
@@ -107,7 +150,7 @@ async function loadDashboardStats() {
     console.error('Failed to load dashboard stats:', err);
   }
 }
-
+ 
 // ========== PRODUCTS CRUD ==========
 async function loadProducts() {
   try {
@@ -347,13 +390,10 @@ async function handleFormSubmit(e) {
       method = 'PUT';
     }
 
-    const res = await fetch(url, {
+    const data = await fetchWithAuth(url, {
       method,
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-
-    const data = await res.json();
 
     if (!data.success) throw new Error(data.message);
 
@@ -422,11 +462,9 @@ async function deleteEntity(entityType, id) {
   if (!confirm(`Ви впевнені, що хочете видалити цей елемент?`)) return;
 
   try {
-    const res = await fetch(`${API_BASE}/${entityType}/${id}`, {
+    const data = await fetchWithAuth(`${API_BASE}/${entityType}/${id}`, {
       method: 'DELETE',
     });
-
-    const data = await res.json();
 
     if (!data.success) throw new Error(data.message);
 
